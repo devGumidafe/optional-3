@@ -7,6 +7,8 @@ on:
 env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
 jobs:
   vercel-cd:
@@ -15,4 +17,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Deploy
-        run: vercel -t ${{ secrets.VERCEL_TOKEN }}
+        run: vercel -t ${{ env.VERCEL_TOKEN }} --env ${{ env.REACT_APP_API_KEY }}
