@@ -17,4 +17,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Deploy
-        run: vercel -t ${{ env.VERCEL_TOKEN }} --env ${{ env.REACT_APP_API_KEY }}
+        run: vercel -t ${{ env.VERCEL_TOKEN }}
